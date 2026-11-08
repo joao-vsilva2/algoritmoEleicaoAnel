@@ -1,0 +1,122 @@
+17:13:12.384 [INFO] Anel distribuído iniciado com sucesso com 8 processos: [10, 20, 30, 40, 50, 60, 70, 80]
+17:13:12.886 [INFO] Disparando eleição inicial no anel a partir dos processos 30, 60 e 80...
+17:13:12.887 [INFO] [Processo 30] Inicia eleição enviando ID 30 para o sucessor.
+17:13:12.938 [INFO] [Processo 30] Encaminhou msg para Sucessor [Processo 40]
+17:13:12.938 [INFO] [Processo 40] Recebeu ELECTION(id=30)
+17:13:12.939 [INFO] [Processo 60] Inicia eleição enviando ID 60 para o sucessor.
+17:13:12.939 [INFO] [Processo 40] Meu ID (40) é maior que 30. Descartando mensagem.
+17:13:12.990 [INFO] [Processo 60] Encaminhou msg para Sucessor [Processo 70]
+17:13:12.991 [INFO] [Processo 70] Recebeu ELECTION(id=60)
+17:13:12.991 [INFO] [Processo 80] Inicia eleição enviando ID 80 para o sucessor.
+17:13:12.991 [INFO] [Processo 70] Meu ID (70) é maior que 60. Descartando mensagem.
+17:13:13.043 [INFO] [Processo 80] Encaminhou msg para Sucessor [Processo 10]
+17:13:13.044 [INFO] [Processo 10] Recebeu ELECTION(id=80)
+17:13:13.096 [INFO] [Processo 10] Encaminhou msg para Sucessor [Processo 20]
+17:13:13.096 [INFO] [Processo 20] Recebeu ELECTION(id=80)
+17:13:13.148 [INFO] [Processo 20] Encaminhou msg para Sucessor [Processo 30]
+17:13:13.148 [INFO] [Processo 30] Recebeu ELECTION(id=80)
+17:13:13.208 [INFO] [Processo 30] Encaminhou msg para Sucessor [Processo 40]
+17:13:13.209 [INFO] [Processo 40] Recebeu ELECTION(id=80)
+17:13:13.267 [INFO] [Processo 40] Encaminhou msg para Sucessor [Processo 50]
+17:13:13.267 [INFO] [Processo 50] Recebeu ELECTION(id=80)
+17:13:13.318 [INFO] [Processo 50] Encaminhou msg para Sucessor [Processo 60]
+17:13:13.319 [INFO] [Processo 60] Recebeu ELECTION(id=80)
+17:13:13.370 [INFO] [Processo 60] Encaminhou msg para Sucessor [Processo 70]
+17:13:13.371 [INFO] [Processo 70] Recebeu ELECTION(id=80)
+17:13:13.422 [INFO] [Processo 70] Encaminhou msg para Sucessor [Processo 80]
+17:13:13.423 [INFO] [Processo 80] Recebeu ELECTION(id=80)
+17:13:13.424 [INFO] [Processo 80] Meu ID completou a volta no anel! EU SOU O NOVO COORDENADOR.
+17:13:13.425 [INFO] [Processo 80] Anuncia vitória do Coordenador 80 para o anel.
+17:13:13.476 [INFO] [Processo 80] Encaminhou msg para Sucessor [Processo 10]
+17:13:13.477 [INFO] [Processo 10] Reconhece Processo 80 como Coordenador oficial.
+17:13:13.528 [INFO] [Processo 10] Encaminhou msg para Sucessor [Processo 20]
+17:13:13.529 [INFO] [Processo 20] Reconhece Processo 80 como Coordenador oficial.
+17:13:13.580 [INFO] [Processo 20] Encaminhou msg para Sucessor [Processo 30]
+17:13:13.581 [INFO] [Processo 30] Reconhece Processo 80 como Coordenador oficial.
+17:13:13.632 [INFO] [Processo 30] Encaminhou msg para Sucessor [Processo 40]
+17:13:13.633 [INFO] [Processo 40] Reconhece Processo 80 como Coordenador oficial.
+17:13:13.686 [INFO] [Processo 40] Encaminhou msg para Sucessor [Processo 50]
+17:13:13.687 [INFO] [Processo 50] Reconhece Processo 80 como Coordenador oficial.
+17:13:13.742 [INFO] [Processo 50] Encaminhou msg para Sucessor [Processo 60]
+17:13:13.743 [INFO] [Processo 60] Reconhece Processo 80 como Coordenador oficial.
+17:13:13.794 [INFO] [Processo 60] Encaminhou msg para Sucessor [Processo 70]
+17:13:13.795 [INFO] [Processo 70] Reconhece Processo 80 como Coordenador oficial.
+17:13:13.847 [INFO] [Processo 70] Encaminhou msg para Sucessor [Processo 80]
+17:13:16.049 [INFO] Estado atual do anel após a eleição inicial:
+17:13:16.050 [INFO] Processo 10 | Coordenador Conhecido: 80 | Sucessor Ativo: 20
+17:13:16.050 [INFO] Processo 20 | Coordenador Conhecido: 80 | Sucessor Ativo: 30
+17:13:16.050 [INFO] Processo 30 | Coordenador Conhecido: 80 | Sucessor Ativo: 40
+17:13:16.051 [INFO] Processo 40 | Coordenador Conhecido: 80 | Sucessor Ativo: 50
+17:13:16.051 [INFO] Processo 50 | Coordenador Conhecido: 80 | Sucessor Ativo: 60
+17:13:16.051 [INFO] Processo 60 | Coordenador Conhecido: 80 | Sucessor Ativo: 70
+17:13:16.052 [INFO] Processo 70 | Coordenador Conhecido: 80 | Sucessor Ativo: 80
+17:13:16.052 [INFO] Processo 80 | Coordenador Conhecido: 80 | Sucessor Ativo: 10
+17:13:16.055 [INFO] Simulando falha repentina do Coordenador atual [Processo 80]...
+17:13:17.057 [WARNING] [Processo 70] Sucessor [Processo 80] está inativo/morto. Pulando...
+17:13:17.057 [INFO] [Reconfiguração] Processo 70 atualizou seu sucessor direto para o Processo 10.
+17:13:17.061 [INFO] Detectando queda do coordenador e disparando nova eleição com processos restantes...
+17:13:17.061 [INFO] [Processo 10] Inicia eleição enviando ID 10 para o sucessor.
+17:13:17.113 [INFO] [Processo 10] Encaminhou msg para Sucessor [Processo 20]
+17:13:17.113 [INFO] [Processo 20] Recebeu ELECTION(id=10)
+17:13:17.113 [INFO] [Processo 20] Inicia eleição enviando ID 20 para o sucessor.
+17:13:17.114 [INFO] [Processo 20] Meu ID (20) é maior que 10. Descartando mensagem.
+17:13:17.165 [INFO] [Processo 20] Encaminhou msg para Sucessor [Processo 30]
+17:13:17.166 [INFO] [Processo 30] Recebeu ELECTION(id=20)
+17:13:17.166 [INFO] [Processo 30] Inicia eleição enviando ID 30 para o sucessor.
+17:13:17.167 [INFO] [Processo 30] Meu ID (30) é maior que 20. Descartando mensagem.
+17:13:17.218 [INFO] [Processo 30] Encaminhou msg para Sucessor [Processo 40]
+17:13:17.219 [INFO] [Processo 40] Recebeu ELECTION(id=30)
+17:13:17.219 [INFO] [Processo 40] Inicia eleição enviando ID 40 para o sucessor.
+17:13:17.220 [INFO] [Processo 40] Meu ID (40) é maior que 30. Descartando mensagem.
+17:13:17.276 [INFO] [Processo 40] Encaminhou msg para Sucessor [Processo 50]
+17:13:17.276 [INFO] [Processo 50] Recebeu ELECTION(id=40)
+17:13:17.280 [INFO] [Processo 50] Inicia eleição enviando ID 50 para o sucessor.
+17:13:17.280 [INFO] [Processo 50] Meu ID (50) é maior que 40. Descartando mensagem.
+17:13:17.331 [INFO] [Processo 50] Encaminhou msg para Sucessor [Processo 60]
+17:13:17.331 [INFO] [Processo 60] Recebeu ELECTION(id=50)
+17:13:17.332 [INFO] [Processo 60] Inicia eleição enviando ID 60 para o sucessor.
+17:13:17.332 [INFO] [Processo 60] Meu ID (60) é maior que 50. Descartando mensagem.
+17:13:17.383 [INFO] [Processo 60] Encaminhou msg para Sucessor [Processo 70]
+17:13:17.384 [INFO] [Processo 70] Recebeu ELECTION(id=60)
+17:13:17.384 [INFO] [Processo 70] Inicia eleição enviando ID 70 para o sucessor.
+17:13:17.385 [INFO] [Processo 70] Meu ID (70) é maior que 60. Descartando mensagem.
+17:13:17.436 [INFO] [Processo 70] Encaminhou msg para Sucessor [Processo 10]
+17:13:17.437 [INFO] [Processo 10] Recebeu ELECTION(id=70)
+17:13:17.489 [INFO] [Processo 10] Encaminhou msg para Sucessor [Processo 20]
+17:13:17.489 [INFO] [Processo 20] Recebeu ELECTION(id=70)
+17:13:17.541 [INFO] [Processo 20] Encaminhou msg para Sucessor [Processo 30]
+17:13:17.542 [INFO] [Processo 30] Recebeu ELECTION(id=70)
+17:13:17.594 [INFO] [Processo 30] Encaminhou msg para Sucessor [Processo 40]
+17:13:17.595 [INFO] [Processo 40] Recebeu ELECTION(id=70)
+17:13:17.647 [INFO] [Processo 40] Encaminhou msg para Sucessor [Processo 50]
+17:13:17.647 [INFO] [Processo 50] Recebeu ELECTION(id=70)
+17:13:17.698 [INFO] [Processo 50] Encaminhou msg para Sucessor [Processo 60]
+17:13:17.698 [INFO] [Processo 60] Recebeu ELECTION(id=70)
+17:13:17.753 [INFO] [Processo 60] Encaminhou msg para Sucessor [Processo 70]
+17:13:17.753 [INFO] [Processo 70] Recebeu ELECTION(id=70)
+17:13:17.759 [INFO] [Processo 70] Meu ID completou a volta no anel! EU SOU O NOVO COORDENADOR.
+17:13:17.760 [INFO] [Processo 70] Anuncia vitória do Coordenador 70 para o anel.
+17:13:17.811 [INFO] [Processo 70] Encaminhou msg para Sucessor [Processo 10]
+17:13:17.811 [INFO] [Processo 10] Reconhece Processo 70 como Coordenador oficial.
+17:13:17.863 [INFO] [Processo 10] Encaminhou msg para Sucessor [Processo 20]
+17:13:17.863 [INFO] [Processo 20] Reconhece Processo 70 como Coordenador oficial.
+17:13:17.914 [INFO] [Processo 20] Encaminhou msg para Sucessor [Processo 30]
+17:13:17.915 [INFO] [Processo 30] Reconhece Processo 70 como Coordenador oficial.
+17:13:17.970 [INFO] [Processo 30] Encaminhou msg para Sucessor [Processo 40]
+17:13:17.970 [INFO] [Processo 40] Reconhece Processo 70 como Coordenador oficial.
+17:13:18.032 [INFO] [Processo 40] Encaminhou msg para Sucessor [Processo 50]
+17:13:18.032 [INFO] [Processo 50] Reconhece Processo 70 como Coordenador oficial.
+17:13:18.083 [INFO] [Processo 50] Encaminhou msg para Sucessor [Processo 60]
+17:13:18.084 [INFO] [Processo 60] Reconhece Processo 70 como Coordenador oficial.
+17:13:18.135 [INFO] [Processo 60] Encaminhou msg para Sucessor [Processo 70]
+17:13:20.442 [INFO] Verificação final do anel reconfigurado:
+17:13:20.442 [INFO] Processo 10 [ATIVO        ] | Coordenador: 70 | Sucessor Ativo: 20
+17:13:20.442 [INFO] Processo 20 [ATIVO        ] | Coordenador: 70 | Sucessor Ativo: 30
+17:13:20.443 [INFO] Processo 30 [ATIVO        ] | Coordenador: 70 | Sucessor Ativo: 40
+17:13:20.443 [INFO] Processo 40 [ATIVO        ] | Coordenador: 70 | Sucessor Ativo: 50
+17:13:20.443 [INFO] Processo 50 [ATIVO        ] | Coordenador: 70 | Sucessor Ativo: 60
+17:13:20.443 [INFO] Processo 60 [ATIVO        ] | Coordenador: 70 | Sucessor Ativo: 70
+17:13:20.443 [INFO] Processo 70 [ATIVO        ] | Coordenador: 70 | Sucessor Ativo: 10
+17:13:20.444 [INFO] Processo 80 [MORTO/INATIVO] | Coordenador: 80 | Sucessor Ativo: N/A
+17:13:20.444 [INFO] Novo coordenador eleito com sucesso: Processo 70
+17:13:20.448 [INFO] Todos os processos da simulação foram encerrados.
