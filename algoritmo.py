@@ -73,6 +73,7 @@ class Process(threading.Thread):
             elif origin_id < self.process_id:
                 logging.info(f"[Processo {self.process_id}] Meu ID ({self.process_id}) é maior que {origin_id}. Descartando mensagem.")
             elif origin_id == self.process_id:
+                logging.info("")
                 logging.info(f"[Processo {self.process_id}] Meu ID completou a volta no anel! EU SOU O NOVO COORDENADOR.")
                 self.in_election = False
                 self.announce_coordinator()
@@ -104,6 +105,7 @@ class Process(threading.Thread):
             "coordinator_id": self.process_id
         }
         logging.info(f"[Processo {self.process_id}] Anuncia vitória do Coordenador {self.process_id} para o anel.")
+        logging.info("")
         self.forward_message(msg)
 
     def forward_message(self, msg):
@@ -277,6 +279,7 @@ def demo():
     print("\n" + "-"*80)
     print("PASSO 1: Eleição inicial")
     print("-"*80)
+    logging.info("")
     logging.info("Disparando eleição inicial no anel a partir dos processos 30, 60 e 80...")
     for pid in [30, 60, 80]:
         ring.get_process(pid).start_election()
@@ -289,10 +292,12 @@ def demo():
     print("PASSO 2: Definição e comunicação do coordenador eleito")
     print("-"*80)
     coordinator_id = max(ring_ids)
+    logging.info("")
     logging.info(f"Estado atual do anel após a eleição inicial:")
     for pid in ring_ids:
         p = ring.get_process(pid)
         logging.info(f"Processo {pid:2d} | Coordenador Conhecido: {p.coordinator} | Sucessor Ativo: {p.find_active_successor().process_id}")
+    logging.info("")
 
     generate_svg_stage(ring, 2, "Definição e Comunicação do Coordenador", "estagio_2_coordenador_definido.svg")
 
@@ -302,6 +307,7 @@ def demo():
     print("-"*80)
     current_coord_proc = ring.get_process(coordinator_id)
     if current_coord_proc:
+        logging.info("")
         logging.info(f"Simulando falha repentina do Coordenador atual [Processo {coordinator_id}]...")
         current_coord_proc.stop()
         time.sleep(1.0)
@@ -312,6 +318,7 @@ def demo():
     print("\n" + "-"*80)
     print("PASSO 4: Realização de uma nova eleição e reconfiguração do anel")
     print("-"*80)
+    logging.info("")
     logging.info("Detectando queda do coordenador e disparando nova eleição com processos restantes...")
     surviving_ids = [pid for pid in ring_ids if pid != coordinator_id]
     
@@ -327,7 +334,8 @@ def demo():
     print("-"*80)
     new_active_ids = [pid for pid in ring_ids if ring.get_process(pid).is_active]
     new_coordinator_id = max(new_active_ids)
-    
+
+    logging.info("")
     logging.info(f"Verificação final do anel reconfigurado:")
     for pid in ring_ids:
         p = ring.get_process(pid)
@@ -335,6 +343,7 @@ def demo():
         succ = p.find_active_successor() if p.is_active else None
         logging.info(f"Processo {pid:2d} [{status:13s}] | Coordenador: {p.coordinator} | Sucessor Ativo: {succ.process_id if succ else 'N/A'}")
 
+    logging.info("")
     logging.info(f"Novo coordenador eleito com sucesso: Processo {new_coordinator_id}")
     generate_svg_stage(ring, 5, "Definição do Novo Coordenador", "estagio_5_novo_coordenador.svg")
 
